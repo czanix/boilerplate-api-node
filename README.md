@@ -2,7 +2,7 @@
 
 > Clean Architecture, Result Pattern e OWASP. Padrões validados em 15 anos de produção. Clone e comece a codar.
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-007ACC?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-007ACC?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Express](https://img.shields.io/badge/Express-4.21-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-316192?style=flat&logo=postgresql&logoColor=white)](https://postgresql.org)
 [![CI](https://github.com/czanix/boilerplate-api-node/actions/workflows/ci.yml/badge.svg)](https://github.com/czanix/boilerplate-api-node/actions)
