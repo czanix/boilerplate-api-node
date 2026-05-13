@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-007ACC?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Express](https://img.shields.io/badge/Express-4.21-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-316192?style=flat&logo=postgresql&logoColor=white)](https://postgresql.org)
-[![CI](https://github.com/czanix/boilerplate-api/actions/workflows/ci.yml/badge.svg)](https://github.com/czanix/boilerplate-api/actions)
+[![CI](https://github.com/czanix/boilerplate-api-node/actions/workflows/ci.yml/badge.svg)](https://github.com/czanix/boilerplate-api-node/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tech Reference](https://img.shields.io/badge/Czanix-Tech%20Reference-gold)](https://czanix.com/pt/stack)
 
@@ -82,7 +82,7 @@ docs/
 
 ```bash
 # 1. Clone
-git clone https://github.com/czanix/boilerplate-api.git meu-projeto
+git clone https://github.com/czanix/boilerplate-api-node.git meu-projeto
 cd meu-projeto
 
 # 2. Infraestrutura (PostgreSQL + Redis)
@@ -259,7 +259,7 @@ Saber quando não usar uma tecnologia é o que separa engenheiro sênior de entu
 
 ## Licença
 
-MIT — use, adapte, melhore. Se ajudou, [deixa uma estrela](https://github.com/czanix/boilerplate-api) ⭐
+MIT — use, adapte, melhore. Se ajudou, [deixa uma estrela](https://github.com/czanix/boilerplate-api-node) ⭐
 
 ---
 

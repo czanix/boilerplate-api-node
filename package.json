@@ -1,5 +1,5 @@
 {
-  "name": "@czanix/boilerplate-api",
+  "name": "@czanix/boilerplate-api-node",
   "version": "1.0.0",
   "description": "Production-tested API boilerplate: Node/TypeScript + PostgreSQL. Clean Architecture, Result Pattern, OWASP.",
   "author": "Cesar Zanis <cesar@czanix.com>",
