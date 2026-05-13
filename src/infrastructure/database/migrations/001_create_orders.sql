@@ -1,12 +1,16 @@
--- Migration 001: Create orders table
--- Padrão Czanix: BIGINT PK + UUID público + soft delete + auditoria
+-- =============================================================================
+-- Migration 001: Create Orders
+-- Czanix Boilerplate — https://czanix.com
+-- ADR-001: INT PK + UUID público
+-- ADR-004: Database design principles
+-- =============================================================================
 
 CREATE TABLE IF NOT EXISTS orders (
-    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id          INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,    -- INT basta: orders < 2B
     public_id   UUID NOT NULL DEFAULT gen_random_uuid(),
     customer_id TEXT NOT NULL,
     status      TEXT NOT NULL DEFAULT 'pending',
-    deleted_at  TIMESTAMPTZ NULL,
+    deleted_at  TIMESTAMPTZ NULL,                                -- soft delete
     created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     
@@ -15,18 +19,20 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 CREATE TABLE IF NOT EXISTS order_items (
-    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    order_id    BIGINT NOT NULL REFERENCES orders(id),
+    id          INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    order_id    INT NOT NULL REFERENCES orders(id),              -- FK inegociável
     product_id  TEXT NOT NULL,
-    quantity    INTEGER NOT NULL CHECK (quantity > 0),
-    unit_price  NUMERIC(12, 2) NOT NULL CHECK (unit_price >= 0),
+    quantity    INTEGER NOT NULL CHECK (quantity > 0),            -- constraint no banco
+    unit_price  NUMERIC(12, 2) NOT NULL CHECK (unit_price >= 0), -- NUNCA float para dinheiro
     created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- Índice filtrado: só indexa o que importa
+-- Índice filtrado: só indexa registros ativos
+-- Serve a query: SELECT * FROM orders WHERE customer_id = ? AND deleted_at IS NULL
 CREATE INDEX IF NOT EXISTS ix_orders_customer_active
     ON orders (customer_id, created_at DESC)
     WHERE deleted_at IS NULL;
 
+-- Índice para FK: PostgreSQL não cria automaticamente
 CREATE INDEX IF NOT EXISTS ix_order_items_order
     ON order_items (order_id);
